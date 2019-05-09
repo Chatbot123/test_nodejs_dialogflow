@@ -20,7 +20,7 @@ app.post('/getmeasure-state', (req, res) =>
 {
 		  console.log(req.body);
 		  
-		  var ent_measure = req.body.nlp.entities.ent_measure[0].raw;
+		/*  var ent_measure = req.body.nlp.entities.ent_measure[0].raw;
 		  var ent_state_value = req.body.nlp.entities.ent_state_value[0].raw;
 		  var ent_state = req.body.nlp.entities.ent_state[0].raw;
 		  var distext = '';
@@ -126,55 +126,23 @@ app.post('/getmeasure-state', (req, res) =>
                 } 
 	    }		 
 					
-			
+		*/	
 			
 			
 			
 			//----------------------------------------------
-					var reply = [{
-						type: 'text',
-						content: distext
-					}];
-
+					
 						res.status(200).json({
-						replies: reply,
-						conversation: {
-							memory: { 	        ent_measure: ent_measure,
-										ent_state_value : ent_state_value,
-										ent_state : ent_state
-									
-							}
-						}
+						fulfillmentText : 'A test from webhook',
+    						source : 'webhook'
 					});
-				}, function(error) 
-				{
-						var errorMessage = "GET to XSJS service failed";
-						if(error.code && error.body) {
-							errorMessage += " - " + error.code + ": " + error.body
-						}
-						console.log("Something went wrong with the call");
-						console.log(errorMessage);
-						// dump the full object to see if you can formulate a better error message.
-						console.log(error.body);
+				
 						
-						//Try to provide a proper error response
 						
-						var reply = [{
-							type: 'text',
-							content: "I'm sorry! Something went wrong with the call to the SAP query. Try asking a different question - or type 'reset'."
-						}];
 
-						res.status(200).json({
-							replies: reply,
-							conversation: {
-								memory: { 	ent_measure: ent_measure,
-										ent_state_value : ent_state_value,
-										ent_state : ent_state
-								}
-							}
-						});			
-				}	
-			);
+									
+					
+});
 			
 		  
 		  
@@ -182,10 +150,7 @@ app.post('/getmeasure-state', (req, res) =>
 		
 			   
 
-});
 
-app.post('/errors', (req, res) => {
-  console.log(req.body) 
-  res.send() 
-}) 
+
+
 
