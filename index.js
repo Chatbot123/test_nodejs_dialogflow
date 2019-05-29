@@ -18,7 +18,7 @@ app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
 
 app.post('/getmeasure-state', (req, res) => 
 {
-		  //console.log(req.body);
+		  console.log(req.body);
 		  
 		/*  var ent_measure = req.body.nlp.entities.ent_measure[0].raw;
 		  var ent_state_value = req.body.nlp.entities.ent_state_value[0].raw;
