@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
 
 
-app.post('/webhooktest', (req, res) => 
+app.post('/getmeasure-state', (req, res) => 
 {
 		  console.log(req.body);
 		  
